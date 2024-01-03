@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">Inflation.app</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -83,11 +83,13 @@
 <!-- badges: start -->
 
 <p>A project célja létrehozzon egy közérthető adatsort és ehhez tartozó appot a KSH CPI adatsora alapján (amit a szerző véleménye szerint elég nehéz megtalálni).</p>
-<p>Az eredmény itt elérhető: <img src="https://martynk.shinyapps.io/InflationAppHUF" alt="link"></p>
+<p>A KSH honlapján a megfelelő adatsort átalakítva lehet kinyerni szerintem értelmezhető módon az adatsort; alternatívaként ezen a <a href="statinfo.ksh.hu/Statinfo/QueryServlet?openLink=266cdc8349f09c829fff26480f5fe2da48cc728cddd7829c4ffe86b8be004966">linken</a> keresztül lehet elővarázsolni, de úgy, hogy a megnyíló oldalon <strong>még egyszer</strong> be kell másolni a linket, majd az esetlegesen megnyíló második oldalra <strong>ugyanezt</strong> a linket kell bemásolni és akkor megnyílik. (statinfo.ksh.hu/Statinfo/QueryServlet?openLink=266cdc8349f09c829fff26480f5fe2da48cc728cddd7829c4ffe86b8be004966)</p>
+<p>A könnyebben használható kalkulátor az átdolgozott adatsorral együtt itt elérhető: <a href="https://martynk.shinyapps.io/InflationAppHUF/" class="external-link">link</a></p>
+<p>További dokumentáció: <a href="https://martynk.github.io/InflationAppHUF/" class="external-link">link</a></p>
 <div class="section level2">
 <h2 id="összefoglalás">Összefoglalás<a class="anchor" aria-label="anchor" href="#%C3%B6sszefoglal%C3%A1s"></a>
 </h2>
-<p>A KSH havi adatsorát átdolgoztam, napi bontásra. Az adatsor excelben az <em>inst/backend/calculate_daily_data.xlsx</em> úton elérhető.</p>
+<p>A KSH havi adatsorát átdolgoztam, napi bontásra. Az adatsor excelben az <em>inst/backend/calculate_daily_data.xlsx</em> úton ebben a repóban is itt van, de az appon keresztül is letölthető.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/load.html" class="external-link">load</a></span><span class="op">(</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"inst"</span>,<span class="st">"backend"</span>,<span class="st">"calculate_daily_data.rdata"</span><span class="op">)</span><span class="op">)</span></span>
@@ -105,7 +107,7 @@
 <div class="section level2">
 <h2 id="lokális-verzió-futtatása">Lokális verzió futtatása<a class="anchor" aria-label="anchor" href="#lok%C3%A1lis-verzi%C3%B3-futtat%C3%A1sa"></a>
 </h2>
-<p>Az appot az ingyenes Rstudio telepítése után lokáisan is futtathatjuk a <a href="https://github.com/" class="external-link">GitHub</a> segítségével.</p>
+<p>Az appot az ingyenes Rstudio telepítése után lokálisan is futtathatjuk.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"MartynK/MartysProjectTemplate"</span><span class="op">)</span></span></code></pre></div>

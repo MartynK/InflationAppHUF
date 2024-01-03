@@ -26,6 +26,9 @@ A KSH honlapján a megfelelő adatsort átalakítva lehet kinyerni szerintem ér
 
 A könnyebben használható kalkulátor az átdolgozott adatsorral együtt itt elérhető: [link](https://martynk.shinyapps.io/InflationAppHUF/)
 
+További dokumentáció: [link](https://martynk.github.io/InflationAppHUF/)  
+
+
 ## Összefoglalás
 
 A KSH havi adatsorát átdolgoztam, napi bontásra. 
@@ -48,7 +51,7 @@ dat |>
 
 ## Lokális verzió futtatása
 
-Az appot az ingyenes Rstudio telepítése után lokáisan is futtathatjuk a [GitHub](https://github.com/) segítségével.
+Az appot az ingyenes Rstudio telepítése után lokálisan is futtathatjuk.
 
 ``` r
 # install.packages("devtools")
