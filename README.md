@@ -11,9 +11,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/PROJECTNAME)](https://CRAN.R-project.org/package=PROJECTNAME)
 <!-- badges: end -->
 
-A project célja létrehozn egy közérthető adatsort és ehhez tartozó appot
-a KSH CPI adatsora alapján (amit a szerző véleménye szerint elég nehéz
-megtalálni).
+A project célja létrehozzon egy közérthető adatsort és ehhez tartozó
+appot a KSH CPI adatsora alapján (amit a szerző véleménye szerint elég
+nehéz megtalálni).
+
+Az eredmény itt elérhető:
+![link](https://martynk.shinyapps.io/InflationAppHUF)
 
 ## Összefoglalás
 

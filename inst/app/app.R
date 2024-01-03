@@ -37,13 +37,27 @@ ui <- fluidPage(
                         value=as.Date("2023-10-01"),
                         timeFormat="%Y-%m-%d"),
 
+            # Download button
+            downloadButton("downloadData", "Download Daily Data"),
 
             # Add your discreet message at the bottom
             tags$hr(),  # Horizontal line for separation
-            tags$p("Ha megköszönnéd vagy kéne egy jó statisztikus:"),
-            tags$a(href = "mailto:inquiries.mkmarton@gmail.com", "inquiries.mkmarton@gmail.com"),
-            tags$p("Wallet: 0x253b92ccb486b0755b348d4b83b1c59e4819d034"),  # Replace '.....' with your wallet details
-            style = "font-size: 80%; color: grey; text-align: left; padding-top: 20px;"  # Styling
+
+
+            # Footer with discreet message and custom link
+            tags$footer(
+
+              tags$p("Ha megköszönnéd vagy kéne egy statisztikus:"),
+              tags$a(href = "mailto:inquiries.mkmarton@gmail.com", "inquiries.mkmarton@gmail.com"),
+              tags$p("Wallet: 0x253b92ccb486b0755b348d4b83b1c59e4819d034"),
+              style = "font-size: 80%; color: grey; text-align: left; padding-top: 20px;",  # Styling
+
+              # Custom link
+              tags$p(
+                tags$a(href = "https://www.linkedin.com/in/marton-kiss-md-29308a112/", "by Márton Kiss"),
+                style = "font-size: 80%; color: grey; text-align: center; padding-top: 20px;"
+              )
+            )
 
         ),
 
@@ -118,6 +132,16 @@ server <- function(input, output) {
     value_late() %>% round() %>%
       paste0("Az összeg a későbbi időpontban: ",.," Ft")
   })
+
+  # Server response for download
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      "calculate_daily_data.xlsx"
+    },
+    content = function(file) {
+      file.copy("calculate_daily_data.xlsx", file)
+    }
+  )
 }
 
 # Run the application
