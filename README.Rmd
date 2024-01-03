@@ -22,12 +22,14 @@ knitr::opts_chunk$set(
 
 A project célja létrehozzon egy közérthető adatsort és ehhez tartozó appot a KSH CPI adatsora alapján (amit a szerző véleménye szerint elég nehéz megtalálni).  
 
-Az eredmény itt elérhető: ![link](https://martynk.shinyapps.io/InflationAppHUF)
+A KSH honlapján a megfelelő adatsort átalakítva lehet kinyerni szerintem értelmezhető módon az adatsort; alternatívaként ezen a [linken](statinfo.ksh.hu/Statinfo/QueryServlet?openLink=266cdc8349f09c829fff26480f5fe2da48cc728cddd7829c4ffe86b8be004966) keresztül lehet elővarázsolni, de úgy, hogy a megnyíló oldalon **még egyszer** be kell másolni a linket, majd az esetlegesen megnyíló második oldalra **ugyanezt** a linket kell bemásolni és akkor megnyílik. (statinfo.ksh.hu/Statinfo/QueryServlet?openLink=266cdc8349f09c829fff26480f5fe2da48cc728cddd7829c4ffe86b8be004966)
+
+A könnyebben használható kalkulátor az átdolgozott adatsorral együtt itt elérhető: [link](https://martynk.shinyapps.io/InflationAppHUF/)
 
 ## Összefoglalás
 
 A KSH havi adatsorát átdolgoztam, napi bontásra. 
-Az adatsor excelben az *inst/backend/calculate_daily_data.xlsx* úton elérhető.
+Az adatsor excelben az *inst/backend/calculate_daily_data.xlsx* úton ebben a repóban is itt van, de az appon keresztül is letölthető.
 
 ```{r }
 library(ggplot2)

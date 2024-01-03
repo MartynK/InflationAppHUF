@@ -43,22 +43,26 @@ ui <- fluidPage(
             # Add your discreet message at the bottom
             tags$hr(),  # Horizontal line for separation
 
-
             # Footer with discreet message and custom link
             tags$footer(
 
               tags$p("Ha megköszönnéd vagy kéne egy statisztikus:"),
               tags$a(href = "mailto:inquiries.mkmarton@gmail.com", "inquiries.mkmarton@gmail.com"),
               tags$p("Wallet: 0x253b92ccb486b0755b348d4b83b1c59e4819d034"),
-              style = "font-size: 80%; color: grey; text-align: left; padding-top: 20px;",  # Styling
+              style = "font-size: 80%; color: grey; text-align: left;",  # Styling
 
-              # Custom link
+              # Github link
+              tags$p(
+                tags$a(href = "https://github.com/MartynK/InflationAppHUF/", "Github repo"),
+                style = "font-size: 80%; color: grey; text-align: center; padding-top: 10px;"
+              ),
+
+              # Author's link
               tags$p(
                 tags$a(href = "https://www.linkedin.com/in/marton-kiss-md-29308a112/", "by Márton Kiss"),
-                style = "font-size: 80%; color: grey; text-align: center; padding-top: 20px;"
+                style = "font-size: 80%; color: grey; text-align: center; padding-top: 10px;"
               )
             )
-
         ),
 
         # Show a plot of the generated distribution
