@@ -6,8 +6,6 @@
 #'
 #' @param directory A character string of the directory path to scan for .Rdata or .rdata files.
 #'
-#' @examples
-#' load_all_Rdata(here::here("inst","backend"))
 #'
 #' @export
 load_all_Rdata <- function(directory) {

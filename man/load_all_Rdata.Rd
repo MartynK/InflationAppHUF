@@ -14,7 +14,3 @@ This function scans a specified directory for all files with .Rdata or .rdata
 extensions and loads them into the R environment. It provides error messages
 for non-existent directories and directories with no relevant files.
 }
-\examples{
-load_all_Rdata(here::here("inst","backend"))
-
-}
