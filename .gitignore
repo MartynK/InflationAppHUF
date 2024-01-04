@@ -40,10 +40,6 @@
 # R Environment Variables
 .Renviron
 
-##INCLUDE THIS ALSO!!
-## pkgdown site
-#docs/
-
 # translation temp files
 po/*~
 

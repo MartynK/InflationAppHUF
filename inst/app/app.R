@@ -12,11 +12,14 @@ load("calculate_daily_data.rdata")
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Forint inflációja"),
+    titlePanel("Forint inflációja a KSH 'Fogyasztói árindex , 1990. évi bázison' adatsora alapján"),
 
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
+            actionButton("log_y", "Log skála"),
+            actionButton("lin_y", "Lin. skála"),
+            hr(),
             numericInput(
               "START_AMOUNT",
               "Összeg értéke:",
@@ -25,7 +28,7 @@ ui <- fluidPage(
             checkboxInput("REVERSE", "A későbbi időpontban(?)",
                           value = FALSE),
             sliderInput("START_TIME",
-                        "Earlier Date:",
+                        "Korábbi időpont:",
                         min = as.Date("1992-01-01","%Y-%m-%d"),
                         max = as.Date("2023-01-01","%Y-%m-%d"),
                         value=as.Date("2019-05-04"),
@@ -38,7 +41,7 @@ ui <- fluidPage(
                         timeFormat="%Y-%m-%d"),
 
             # Download button
-            downloadButton("downloadData", "Download Daily Data"),
+            downloadButton("downloadData", "Adatsor letöltése (Napi bontás)"),
 
             # Add your discreet message at the bottom
             tags$hr(),  # Horizontal line for separation
@@ -77,6 +80,10 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
+  scale_y <- reactiveValues(scale="log")
+
+  observeEvent(input$lin_y, {scale_y$scale<-"lin"})
+  observeEvent(input$log_y, {scale_y$scale<-"log"})
 
   cpi_begin     <- reactive({
     dat$cpi[dat$time == input$START_TIME]
@@ -116,18 +123,31 @@ server <- function(input, output) {
 
   output$distPlot <- renderPlot({
 
-    dat_react() %>%
-      ggplot( aes( x = time, y = current_forints)) +
-      theme_bw() +
-      theme( legend.position = "none") +
-      geom_line()  +
-      scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
-      geom_hline( yintercept = value_early(), col = "salmon4") +
-      geom_vline( xintercept = input$START_TIME, col = "salmon4") +
-      geom_hline( yintercept = value_late(), col = "blue") +
-      geom_vline( xintercept = input$END_TIME, col = "blue") +
-      labs( x = "Dátum",
-            y = "Nominális forint")
+    p <-
+      dat_react() %>%
+        ggplot( aes( x = time, y = current_forints)) +
+        theme_bw() +
+        theme( legend.position = "none") +
+        geom_line()  +
+        scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+        geom_hline( yintercept = value_early(), col = "salmon4") +
+        geom_vline( xintercept = input$START_TIME, col = "salmon4") +
+        geom_hline( yintercept = value_late(), col = "blue") +
+        geom_vline( xintercept = input$END_TIME, col = "blue") +
+        labs( x = "Dátum")
+
+    if ( scale_y$scale == "lin") {
+      p <- p +
+             scale_y_continuous() +
+             labs(y = "Nominális forint (lineáris skála)")
+    } else if ( scale_y$scale == "log") {
+      p <- p +
+        scale_y_log10() +
+        labs(y = "Nominális forint (log10-es skála)")
+    }
+
+    p
+
   })
 
   output$orig_val <- renderText({ value_early() %>% round() %>%

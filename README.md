@@ -45,7 +45,8 @@ dat |>
   geom_line()  +
   scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
   labs( x = "Dátum",
-        y = "CPI (1990 = 100)")
+        y = "CPI (1990 = 100), log10 skála") +
+  scale_y_log10()
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />

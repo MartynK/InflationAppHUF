@@ -1,3 +1,13 @@
+# Inflation_app 1.1.0
+
+## New features
+
+ - Log 'y' scale implemented
+
+## Fixes
+
+ - Site menu text fix
+
 # Inflation_app 1.0.0
 
 ## Notes
